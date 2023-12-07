@@ -56,7 +56,6 @@ def updater():
     return bool(changelog)
 
 
-
 @Bot.on_message(filters.command("update") & filters.user(ADMINS))
 async def update_bot(_, message: Message):
     message.chat.id
