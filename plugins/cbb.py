@@ -35,7 +35,7 @@ async def _help(client: Bot, msg: Message):
 @Bot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
-    if data == "about":
+    if data == "order":
         try:
             await query.message.edit_text(
                 text=Data.ORDER.format(client.username, OWNER),
