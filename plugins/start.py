@@ -125,7 +125,7 @@ async def start_command(client: Bot, message: Message):
     else:
         buttons = [
                 [
-                    InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data = "about"),
+                    InlineKeyboardButton("CARA PENGGUNAAN", callback_data = "help"),
                     InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data = "close")
                 ]
             ]
