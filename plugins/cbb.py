@@ -8,6 +8,7 @@ from bot import Bot
 from config import OWNER
 from REA import Data
 from pyrogram import filters
+from pyrogram.errors import MessageNotModified
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, Message
 
 @Bot.on_message(filters.private & filters.incoming & filters.command("order"))
@@ -54,4 +55,11 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         try:
             await query.message.reply_to_message.delete()
         except BaseException:
+            pass
+    elif data == "toggle":
+        # Toggle between order and help buttons
+        new_buttons = Data.order_buttons if "order" in query.message.text.lower() else Data.help_buttons
+        try:
+            await query.message.edit_reply_markup(reply_markup=InlineKeyboardMarkup(new_buttons))
+        except MessageNotModified:
             pass
