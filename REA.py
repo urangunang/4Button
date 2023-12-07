@@ -33,9 +33,16 @@ class Data:
         ],
     ]
 
-    buttons = [
+    order_buttons = [
         [
             InlineKeyboardButton("Order Bot", callback_data="order"),
+            InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")
+        ],
+    ]
+
+    help_buttons = [
+        [
+            InlineKeyboardButton("ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
             InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")
         ],
     ]
@@ -45,8 +52,7 @@ class Data:
 
 <b>• Chat</b> @SayaKyu
 <b>• Lakukan Pembayaran:</b>
-   Pembayaran Yang tersedia Dana,Ovo,Gopay,Qris
+   Pembayaran Yang tersedia Dana, Ovo, Gopay, Qris
 <b>• Isi Data</b>
 <b>• Tunggu Samapai Proses Selesai</b>
-
 """
