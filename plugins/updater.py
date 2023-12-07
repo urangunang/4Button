@@ -67,7 +67,7 @@ async def update_bot(_, message: Message):
         execle(sys.executable, sys.executable, "main.py", environ)
         return
     await msg.edit(
-        f"Bot  Sudah Yang Terbaru ^^)",
+        f"Bot  Sudah Yang Terbaru dari @ReaSupport ^^)",
         disable_web_page_preview=True,
     )
 
