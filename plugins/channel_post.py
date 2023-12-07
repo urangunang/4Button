@@ -19,7 +19,7 @@ from helper_func import encode
     filters.private
     & filters.user(ADMINS)
     & ~filters.command(
-        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]
+        ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink", "id", "logs", "update", "setvar", "delvar", "getvar"]
     )
 )
 async def channel_post(client: Client, message: Message):
