@@ -1,9 +1,3 @@
-# (©)Codexbotz
-# Recide by @Mafia_Tobatz
-# Recode By @mahadappa
-# Kalo clone Gak usah hapus 
-# gue tandain akun tele nya ngentod
-
 from bot import Bot
 from config import OWNER
 from REA import Data
@@ -17,7 +11,7 @@ async def _order(client: Bot, msg: Message):
         msg.chat.id,
         Data.ORDER.format(client.username, OWNER),
         disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(Data.help_buttons),
+        reply_markup=InlineKeyboardMarkup(Data.inline_buttons("order")),
     )
 
 @Bot.on_message(filters.private & filters.incoming & filters.command("help"))
@@ -26,7 +20,7 @@ async def _help(client: Bot, msg: Message):
         msg.chat.id,
         "<b>Cara Menggunakan Bot ini</b>\n" + Data.HELP,
         disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(Data.order_buttons),
+        reply_markup=InlineKeyboardMarkup(Data.inline_buttons("help")),
     )
 
 @Bot.on_callback_query()
@@ -37,7 +31,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.edit_text(
                 text=Data.ORDER.format(client.username, OWNER),
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(Data.help_buttons),
+                reply_markup=InlineKeyboardMarkup(Data.inline_buttons("order")),
             )
         except MessageNotModified:
             pass
@@ -46,7 +40,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.edit_text(
                 text="<b>Cara Menggunakan Bot ini</b>\n" + Data.HELP,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(Data.order_buttons),
+                reply_markup=InlineKeyboardMarkup(Data.inline_buttons("help")),
             )
         except MessageNotModified:
             pass
@@ -58,7 +52,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             pass
     elif data == "toggle":
         # Toggle between order and help buttons
-        new_buttons = Data.order_buttons if "order" in query.message.text.lower() else Data.help_buttons
+        current_state = "order" if "order" in query.message.text.lower() else "help"
+        new_buttons = Data.inline_buttons("order" if current_state == "help" else "help")
         try:
             await query.message.edit_reply_markup(reply_markup=InlineKeyboardMarkup(new_buttons))
         except MessageNotModified:
