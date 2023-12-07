@@ -6,7 +6,7 @@
 
 from bot import Bot
 from config import OWNER
-from Data import Data
+from REA import Data
 from pyrogram import filters
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, Message
