@@ -6,19 +6,19 @@
 
 from bot import Bot
 from config import OWNER
-from REA import Data
+from Data import Data
 from pyrogram import filters
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, Message
 
 
 @Bot.on_message(filters.private & filters.incoming & filters.command("order"))
-async def _about(client: Bot, msg: Message):
+async def _order(client: Bot, msg: Message):
     await client.send_message(
         msg.chat.id,
         Data.ORDER.format(client.username, OWNER),
         disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(Data.mbuttons),
+        reply_markup=InlineKeyboardMarkup(Data.buttons),
     )
 
 
@@ -40,7 +40,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.edit_text(
                 text=Data.ORDER.format(client.username, OWNER),
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(Data.mbuttons),
+                reply_markup=InlineKeyboardMarkup(Data.buttons),
             )
         except MessageNotModified:
             pass
