@@ -39,7 +39,7 @@ class Data:
 
     buttons = [
         [
-            InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data="order"),
+            InlineKeyboardButton("Order Bot", callback_data="order"),
             InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")
         ],
     ]
