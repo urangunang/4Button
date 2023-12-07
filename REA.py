@@ -51,7 +51,9 @@ class Data:
 
  • Creator: @{}
  • Framework: <a href='https://docs.pyrogram.org'>Pyrogram</a>
- • Source Code: <a href='https://github.com/mrismanaziz/File-Sharing-Man'>File-Sharing-Man v4</a>
 
-👨‍💻 Develoved by </b><a href='https://t.me/Lunatic0de/101'>@Lunatic0de</a>
+
+ Ingin membuat Bot seperti ini chat @SayaKyu
+ 
+👨‍💻 Develoved by </b><a href='https://t.me/ReaSupport'>ReaSupport</a>
 """
