@@ -23,6 +23,7 @@ async def _help(client: Bot, msg: Message):
         reply_markup=InlineKeyboardMarkup(Data.inline_buttons("help")),
     )
 
+
 @Bot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
@@ -31,7 +32,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.edit_text(
                 text=Data.ORDER.format(client.username, OWNER),
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(Data.inline_buttons("order")),
+                reply_markup=InlineKeyboardMarkup(Data.help_buttons),
             )
         except MessageNotModified:
             pass
@@ -40,7 +41,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.edit_text(
                 text="<b>Cara Menggunakan Bot ini</b>\n" + Data.HELP,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(Data.inline_buttons("help")),
+                reply_markup=InlineKeyboardMarkup(Data.order_buttons),
             )
         except MessageNotModified:
             pass
@@ -50,6 +51,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.reply_to_message.delete()
         except BaseException:
             pass
+
+
     elif data == "toggle":
         # Toggle between order and help buttons
         current_state = "order" if "order" in query.message.text.lower() else "help"
