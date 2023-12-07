@@ -67,7 +67,7 @@ async def update_bot(_, message: Message):
         execle(sys.executable, sys.executable, "main.py", environ)
         return
     await msg.edit(
-        f"Bot is **up-to-date** with branch [main]({UPSTREAM_REPO}/tree/main)",
+        f"Bot  Sudah Yang Terbaru ^^)",
         disable_web_page_preview=True,
     )
 
