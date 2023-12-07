@@ -26,6 +26,8 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 # NAMA OWNER
 OWNER = os.environ.get("OWNER", "@SayaKyu")
 
+PROTECT_CONTENT = strtobool(os.environ.get("PROTECT_CONTENT", "True"))
+
 # Database
 DB_URI = os.environ.get("DATABASE_URL", "")
 
